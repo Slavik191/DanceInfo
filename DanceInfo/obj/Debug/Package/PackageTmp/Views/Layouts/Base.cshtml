@@ -1,0 +1,74 @@
+﻿@{
+    string style;
+    switch (Sitecore.Context.Site.Name)
+    {
+        case "DanceInfo":
+            style = "gold.css";
+            break;
+        case "DanceInfoV2":
+            style = "red.css";
+            break;
+        default:
+            break;
+    }
+}
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/animate.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/themify.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/scrollbar.min.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/swiper.min.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/cubeportfolio.min.css" rel="stylesheet" type="text/css" />
+
+
+<link href="~/Content/style.css" rel="stylesheet" type="text/css" />
+<link href="~/Content/global.css" rel="stylesheet" type="text/css" />
+
+
+<link href="~/Content/@style" rel="stylesheet" type="text/css" />
+
+<link href="~/Content/main.css" rel="stylesheet" type="text/css" />
+
+
+<body id="page-top">
+    @Html.Sitecore().Placeholder("header")
+    @Html.Sitecore().Placeholder("main")
+    @Html.Sitecore().Placeholder("footer")
+</body>
+
+
+<a href="javascript:void(0);" class="s-back-to-top js__back-to-top"></a>
+
+<script type="text/javascript" src="~/Scripts/jquery.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.migrate.min.js"></script>
+<script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.smooth-scroll.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.back-to-top.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.scrollbar.min.js"></script>
+<script type="text/javascript" src="~/Scripts/swiper.jquery.min.js"></script>
+<script type="text/javascript" src="~/Scripts/waypoint.min.js"></script>
+<script type="text/javascript" src="~/Scripts/counterup.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.cubeportfolio.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.parallax.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.equal-height.min.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery.wow.min.js"></script>
+
+
+<script type="text/javascript" src="~/Scripts/global.min.js"></script>
+<script type="text/javascript" src="~/Scripts/header-sticky.min.js"></script>
+<script type="text/javascript" src="~/Scripts/scrollbar.min.js"></script>
+<script type="text/javascript" src="~/Scripts/swiper.min.js"></script>
+<script type="text/javascript" src="~/Scripts/counter.min.js"></script>
+<script type="text/javascript" src="~/Scripts/parallax.min.js"></script>
+<script type="text/javascript" src="~/Scripts/tab.min.js"></script>
+<script type="text/javascript" src="~/Scripts/equal-height.min.js"></script>
+<script type="text/javascript" src="~/Scripts/wow.min.js"></script>
+
+<script type="text/javascript" src="~/Scripts/main.js"></script>

@@ -1,0 +1,32 @@
+﻿<footer class="g-bg-color--dark">
+    <div class="container g-padding-y-50--xs">
+        <div class="row footer">
+            <div class="col-xs-6">
+                <a href="index.html">
+                    DanceInfo
+                </a>
+            </div>
+            @if (Model != null)
+            {
+                <div class="social">
+                    @foreach (var socialNetwork in Model)
+                    {
+                        <a href="@socialNetwork.Link)">
+                            <img src="@socialNetwork.LinkImg" />
+                        </a>
+                    }
+                </div>
+            }
+            else
+            {
+                <div class="col-xs-6 g-text-right--xs">
+                    <p class="g-font-size-14--xs g-margin-b-0--xs g-color--white-opacity-light">
+                        Megakit - Theme Powered by:
+                        <a href="http://www.keenthemes.com/">KeenThemes.com </a>. @Sitecore.Globalization.Translate.Text("footer")
+                    </p>
+                </div>
+            }
+        </div>
+    </div>
+</footer>
+

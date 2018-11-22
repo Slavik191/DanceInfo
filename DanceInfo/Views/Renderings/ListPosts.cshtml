@@ -1,0 +1,116 @@
+﻿<div class="box search">
+    <div class="container-1">
+        <span class="icon"><i class="fa fa-search"></i></span>
+        <input type="search" id="search" placeholder="Search..." />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <form class="searchInfo" id="searchInfo">
+            <div>
+                <h2>Categories</h2>
+                @foreach (var category in Model.Categories)
+                {
+                    <div class="form-check">
+                        <label>
+                            <input type="checkbox" name="categories" data-category="@category.Title"> <span class="label-text">@category.Title (@category.Count)</span>
+                        </label>
+                    </div>
+                }
+            </div>
+            <div>
+                <h2>Tags</h2>
+                @foreach (var tag in Model.Tags)
+                {
+                    <div class="form-check">
+                        <label>
+                            <input type="checkbox" name="tags" data-tag="@tag.Title"> <span class="label-text">@tag.Title (@tag.Count)</span>
+                        </label>
+                    </div>
+                }
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+<div id="listPosts">
+    @{
+        int prov = 0;
+        foreach (var post in Model.Products)
+        {
+            if (prov % 2 == 0)
+            {
+                <div class="g-promo-section">
+                    <div class="container g-padding-y-80--xs g-padding-y-125--sm">
+                        <div class="row">
+                            <div class="col-sm-5 col-sm-push-7">
+                                <div class="g-margin-b-30--xs">
+                                    <h3 class="g-font-size-32--xs g-font-size-36--sm">@post.Title</h3>
+                                    <p>@post.Description</p>
+                                </div>
+                                <a href="@post.UrlItem" class="text-uppercase s-btn s-btn--sm s-btn--primary-brd g-radius--50 g-padding-x-40--xs">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-sm-pull-6 g-promo-section__img-right--md g-promo-section__img-left--md g-bg-position--center g-height-400--xs g-height-100-percent--md js__fullwidth-img">
+                        <img class="img-responsive" src="@post.UrlImg" alt="Image">
+                    </div>
+                </div>
+
+            }
+            else
+            {
+                <div class="g-promo-section">
+                    <div class="container g-padding-y-80--xs g-padding-y-125--sm">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="g-margin-b-30--xs">
+                                    <h3 class="g-font-size-32--xs g-font-size-36--sm">@post.Title</h3>
+                                    <p>@post.Description</p>
+                                </div>
+                                <a href="@post.UrlItem" class="text-uppercase s-btn s-btn--sm s-btn--primary-brd g-radius--50 g-padding-x-40--xs">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 g-promo-section__img-right--md g-bg-position--center g-height-400--xs g-height-100-percent--md js__fullwidth-img">
+                        <img class="img-responsive" src="@post.UrlImg" alt="Image">
+                    </div>
+                </div>
+
+            }
+            prov++;
+        }
+    }
+    @if (Model.QuantityPage > 1)
+    {
+        <nav aria-label="Page navigation" class="containerPagination"> 
+            <ul class="pagination">
+                <li id="prev">
+                    <a aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                @for (var i = 0; i < Model.QuantityPage; i++)
+                {
+                    if (Model.Page == i + 1)
+                    {
+                        <li class="numberPage active" data-page="@(i+1)"><a>@(i + 1)</a></li>
+                    }
+                    else
+                    {
+                        <li class="numberPage" data-page="@(i+1)"><a>@(i + 1)</a></li>
+                    }
+                }
+                <li id="next">
+                    <a aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    }
+</div>
+

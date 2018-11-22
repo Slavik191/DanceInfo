@@ -1,0 +1,92 @@
+﻿@{
+    if (Model != null)
+    {
+        int prov = 0;
+        foreach (var post in Model.Products)
+        {
+            if (prov % 2 == 0)
+            {
+                <div class="g-promo-section">
+                    <div class="container g-padding-y-80--xs g-padding-y-125--sm">
+                        <div class="row">
+                            <div class="col-sm-5 col-sm-push-7">
+                                <div class="g-margin-b-30--xs">
+                                    <h3 class="g-font-size-32--xs g-font-size-36--sm">@post.Title</h3>
+                                    <p>@post.Description</p>
+                                </div>
+                                <a href="@post.UrlItem" class="text-uppercase s-btn s-btn--sm s-btn--primary-brd g-radius--50 g-padding-x-40--xs">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-sm-pull-6 g-promo-section__img-right--md g-promo-section__img-left--md g-bg-position--center g-height-400--xs g-height-100-percent--md js__fullwidth-img" style="background-image: url('@post.UrlImg');">
+                    </div>
+                </div>
+            }
+            else
+            {
+                <div class="g-promo-section">
+                    <div class="container g-padding-y-80--xs g-padding-y-125--sm">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="g-margin-b-30--xs">
+                                    <h3 class="g-font-size-32--xs g-font-size-36--sm">@post.Title</h3>
+                                    <p>@post.Description</p>
+                                </div>
+                                <a href="@post.UrlItem" class="text-uppercase s-btn s-btn--sm s-btn--primary-brd g-radius--50 g-padding-x-40--xs">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 g-promo-section__img-right--md g-bg-position--center g-height-400--xs g-height-100-percent--md js__fullwidth-img" style="background-image: url('@post.UrlImg');">
+                    </div>
+                </div>
+
+            }
+            prov++;
+        }
+    }
+    else
+    {
+        <div class="s-promo-block-v1 g-bg-color--primary-to-blueviolet-ltr g-fullheight--md">
+            <div class="container g-ver-center--md g-padding-y-100--xs">
+                <div class="row g-hor-centered-row--md g-margin-t-30--xs g-margin-t-20--sm">
+                    <div class="col-lg-6 col-sm-6 g-hor-centered-row__col g-text-center--xs g-text-left--md g-margin-b-60--xs g-margin-b-0--md">
+                        <div class="s-promo-block-v1__square-effect g-margin-b-60--xs">
+                            <h1 class="g-font-size-32--xs g-font-size-45--sm g-font-size-50--lg g-color--white">there is no such<br>page</h1>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+}
+@if(Model.QuantityPage > 1)
+{
+    <nav aria-label="Page navigation" class="containerPagination">
+        <ul class="pagination">
+            <li id="prev">
+                <a aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            @for (var i = 0; i < Model.QuantityPage; i++)
+            {
+                if (Model.Page == i + 1)
+                {
+                    <li class="numberPage active" data-page="@(i+1)"><a>@(i + 1)</a></li>
+                }
+                else
+                {
+                    <li class="numberPage" data-page="@(i+1)"><a>@(i + 1)</a></li>
+                }
+            }
+            <li id="next">
+                <a aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+}
+

@@ -1,0 +1,55 @@
+﻿<div class="js__parallax-window" style="background: url('@Model.LinkImg') 50% 0 no-repeat fixed; background-size: 100%; height: 530px;">
+</div>
+
+<div id="js__scroll-to-section" class="g-container--md g-padding-y-80--xs g-padding-y-125--sm">
+    <h2 class="g-font-size-32--xs g-font-size-36--md g-text-center--xs g-margin-b-80--xs">@Model.Title</h2>
+    <div class="row g-margin-b-50--xs">
+        <div class="col-sm-6 g-margin-b-30--xs g-margin-b-0--sm">
+            <p>@Model.Description.Substring(0, Model.Description.ToString().Length / 2)</p>
+        </div>
+        <div class="col-sm-6">
+            <p>@Model.Description.Substring(Model.Description.Length / 2)</p>
+        </div>
+    </div>
+</div>
+
+<div id="js__scroll-to-section" class="g-container--md g-padding-y-80--xs g-padding-y-125--sm" style="padding-top: 0;">
+    <ul class="media-list" id="listComments">
+        @foreach (var comment in Model.Comments)
+        {
+            <li class="media">
+                <a class="pull-left" href="#">
+                    <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg" alt="profile">
+                </a>
+                <div class="media-body">
+                    <div class="well well-lg">
+                        <h4 class="media-heading text-uppercase reviews">@comment.Fields["Author"]</h4>
+                        <ul class="media-date text-uppercase reviews list-inline">
+                            <li class="dd">22</li>
+                            <li class="mm">09</li>
+                            <li class="aaaa">2014</li>
+                        </ul>
+                        <p class="media-comment">
+                            @comment.Fields["Text"]
+                        </p>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+
+    <form action="#" method="post" class="form-horizontal" id="commentForm" role="form">
+        <div class="form-group">
+            <label for="email" class="col-sm-2 control-label">Comment</label>
+            <div class="col-sm-10">
+                <textarea class="form-control" name="addComment" id="addComment" rows="5"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button class="btn btn-success btn-circle text-uppercase" type="button" id="submitComment" data-itemID="@Sitecore.Context.Item.ID"><span class="glyphicon glyphicon-send"></span> Summit comment</button>
+            </div>
+        </div>
+    </form>
+</div>
+

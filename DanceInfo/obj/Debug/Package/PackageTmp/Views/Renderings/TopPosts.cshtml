@@ -1,0 +1,23 @@
+﻿<div class="g-bg-color--sky-light">
+    <div class="container g-padding-y-80--xs g-padding-y-125--sm">
+        <div class="g-text-center--xs g-margin-b-60--xs">
+            <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--primary g-letter-spacing--2">@Sitecore.Mvc.Presentation.PageContext.Current.Item.Fields["Body"].Value</p>
+        </div>
+        <div class="row">
+            @foreach (var post in Model)
+            {
+                <div class="col-sm-4 g-margin-b-30--xs g-margin-b-0--md news" data-href="@post.LinkItem">
+                    <article>
+                        <img class="img-responsive" src="@post.LinkImg" alt="Image">
+                        <div class="g-bg-color--white g-box-shadow__dark-lightest-v2 g-text-center--xs g-padding-x-40--xs g-padding-y-40--xs">
+                            <p class="text-uppercase g-font-size-14--xs g-font-weight--700 g-color--primary g-letter-spacing--2">Family Law</p>
+                            <h2 class="g-font-size-26--xs g-font-family--playfair g-letter-spacing--1">@post.Title</h2>
+                            <p>@post.Description</p>
+                        </div>
+                    </article>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
